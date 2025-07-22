@@ -11,7 +11,6 @@ import it.unimi.dsi.fastutil.longs.LongSet;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
@@ -40,10 +39,6 @@ public class HeraclesForge {
         NeoForge.EVENT_BUS.addListener(HeraclesForge::onEntityInteract);
         NeoForge.EVENT_BUS.addListener(HeraclesForge::onEntityDeath);
         NeoForge.EVENT_BUS.addListener(HeraclesForge::onRegisterCommands);
-
-        if (FMLEnvironment.dist.isClient()) {
-            HeraclesForgeClient.init();
-        }
     }
 
     private static void onEntityDeath(LivingDeathEvent event) {
